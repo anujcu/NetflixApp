@@ -12,7 +12,7 @@ import { addUser } from '../../Store/Slices/UserSlice';
 
 const Login=()=>{
 
-    const navigate=useNavigate();
+  
     const dispatch=useDispatch();
     const[signUp,setSignUp]=useState(true);
     const name=useRef(null);
@@ -48,8 +48,7 @@ const Login=()=>{
                                 //update store with local value
                                 const {uid,email,displayName,photoURL} = AUTH.currentUser;
                                 dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
-                                setErrorMessage("Profile Updated Successfully");
-                                navigate("/browse");
+                                
                             }).catch((error) => {
                                 setErrorMessage(error);
                             });
@@ -70,7 +69,7 @@ const Login=()=>{
          .then((userCredential) => {
              // Signed up 
              const user = userCredential.user;
-             navigate("/browse");
+          
          })
          .catch((error) => {
              //const errorCode = error.code;

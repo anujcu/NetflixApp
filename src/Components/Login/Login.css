@@ -1,0 +1,66 @@
+.loginPageContainer{
+    background-image: url(../../assets/img/netFlixBG.webp);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+}
+.absolute.bg-gradient-to-b.from-black {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    background: #0d0c0cab;
+    padding: 20px;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 350px;
+}
+.inputControlLogin {
+    border: 0;
+    padding: 10px 10px;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    background: #252525;
+}
+.Login-SignUpBtn {
+    background: #ed1c24;
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 4px;
+    font-size: 19px;
+}
+.loginTitle {
+    color: #fff;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.toggleLinklogin-signIn {
+    color: gray;
+    margin-top: 40px;
+    font-size: 16px;
+    display: flex;
+    column-gap: 10px;
+    margin-bottom: 10px;
+}
+.toggleLinklogin-signIn button{
+    color:#fff;
+    cursor:pointer;
+}
+.textDescriptionLoginSignup {
+    color: #bbb6b6;
+    font-size: 13px;
+    line-height: 15px;
+}
+.errorMessage {
+    color: #ffffff;
+    background: #8b060638;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}

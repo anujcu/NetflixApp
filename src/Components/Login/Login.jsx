@@ -8,10 +8,12 @@ import { useDispatch } from 'react-redux';
 import appStore from '../../Store/AppStore';
 import { useNavigate } from 'react-router-dom';
 import Browse from '../Browse/Browse';
+import { addUser } from '../../Store/Slices/UserSlice';
 
 const Login=()=>{
 
     const navigate=useNavigate();
+    const dispatch=useDispatch();
     const[signUp,setSignUp]=useState(true);
     const name=useRef(null);
     const email=useRef(null);
@@ -33,7 +35,6 @@ const Login=()=>{
       //Sign In / Sign Up
       if(!signUp){
        
-       
         /// Sign Up
             createUserWithEmailAndPassword(AUTH,email.current.value,password.current.value)
             .then((userCredential) => {
@@ -44,11 +45,15 @@ const Login=()=>{
                                 displayName: name.current.value,
                                 photoURL: "https://avatars.githubusercontent.com/u/8604223?s=40&v=4"
                             }).then(() => {
-                                setErrorMessage("Profile Updated Successfully")
+                                //update store with local value
+                                const {uid,email,displayName,photoURL} = AUTH.currentUser;
+                                dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
+                                setErrorMessage("Profile Updated Successfully");
+                                navigate("/browse");
                             }).catch((error) => {
                                 setErrorMessage(error);
                             });
-                navigate("/browse");
+                            
             })
             .catch((error) => {
                 //const errorCode = error.code;

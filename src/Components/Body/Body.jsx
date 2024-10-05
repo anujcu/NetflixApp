@@ -2,7 +2,7 @@ import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import Browse from '../Browse/Browse'
 import './Body.css'
 import Login from '../Login/Login';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { AUTH } from '../../Utils/Firebase';
 import { useDispatch } from 'react-redux';
@@ -31,18 +31,12 @@ const Body = () => {
         useEffect(()=>{
           onAuthStateChanged(AUTH, (user) => {
             if (user) {
+                            // User Sign In
               const {uid,email,displayName,photoURL} = user;
-              console.log('UID:', uid);
-              console.log('Email:', email);
-              console.log('Name:', displayName);
-              console.log('URL:', photoURL);
               dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
-              
-              // User Sign In
             } else {
-              // User is signed out
-            dispatch(removeUser);
-            
+                           // User is signed out
+            dispatch(removeUser());
             }
           });
         },[]);
@@ -51,5 +45,4 @@ const Body = () => {
     <RouterProvider router={appRouter}/>
   )
 }
-
-export default Body
+export default Body;

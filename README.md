@@ -83,8 +83,13 @@ createUserWithEmailAndPassword(auth, email, password)
     // ..
   });
 
-  onAuthStateChange utility provied by firebase
+    onAuthStateChange utility provied by firebase
    https://firebase.google.com/docs/reference/js/auth.user
+
+
+
+
+   TMDB Api for videos
    
 
 

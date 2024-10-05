@@ -21,10 +21,15 @@
 .headerProfileInfo {
     display: flex;
     column-gap: 10px;
+    align-items: center;
 }
 .headerProfileInfo {
     color:#fff;
 }
 .headerProfileInfo span{
     font-weight: 600;
+}
+img.userProfileImage {
+    border-radius: 50%;
+    height: 32px;
 }

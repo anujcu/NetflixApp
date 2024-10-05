@@ -1,1 +1,1 @@
-export const NETFLIX_LOGO ='src/assets/img/netflixLogo.png'
+export const NETFLIX_LOGO ='./src/assets/img/netflixLogo.svg'

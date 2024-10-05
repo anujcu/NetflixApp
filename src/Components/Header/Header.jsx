@@ -45,7 +45,7 @@ useEffect(()=>{
   return (
     <div className='headerWrapper'>
     
-      <img src={NETFLIX_LOGO} alt='netflix logo' className='netFlixHeaderLogo'/>
+      <img src="https://th.bing.com/th/id/R.2ea85d7448475a744c1485c2eac3d3d1?rik=LOSTtarBPEnY%2fw&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fnetflix-logo-0.png&ehk=PaZLUHaWmwAMEzdIDx7zGpBu053ZpXipTljxBidJnfU%3d&risl=&pid=ImgRaw&r=0" alt='netflix logo' className='netFlixHeaderLogo'/>
   {    userName && <div className='headerProfileInfo'>
     <img className='userProfileImage' src={user.photoURL} alt='user'/>
     <p>Welcome,<span> {user.displayName}</span></p>

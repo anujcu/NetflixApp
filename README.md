@@ -61,6 +61,30 @@
     --> firebase init
     -->firebase deploy
     --> npm build
+
+    # 🚀 create Authentication use sign UP
+    https://firebase.google.com/docs/auth/web/manage-users
+   
+
+    # Web Modular API
+   https://firebase.google.com/docs/auth/web/password-auth#create_a_password-based_account
+    import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+
+  onAuthStateChange utility provied by firebase
+   https://firebase.google.com/docs/reference/js/auth.user
    
 
 

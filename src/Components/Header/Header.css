@@ -11,3 +11,20 @@
 .netFlixHeaderLogo {
     height: 50px;
 }
+.headerWrapper button {
+    background: #edaf1c;
+    color: #fff;
+    padding: 2px 15px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+.headerProfileInfo {
+    display: flex;
+    column-gap: 10px;
+}
+.headerProfileInfo {
+    color:#fff;
+}
+.headerProfileInfo span{
+    font-weight: 600;
+}

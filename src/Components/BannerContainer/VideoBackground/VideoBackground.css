@@ -1,0 +1,9 @@
+.videoBannerWrapper{
+  position: relative;
+  overflow: hidden;
+  height: 90vh;
+}
+.videoBannerPlayer {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}

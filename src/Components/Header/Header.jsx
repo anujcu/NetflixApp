@@ -4,7 +4,7 @@ import './Header.css';
 import {signOut } from "firebase/auth";
 import {useSelector } from 'react-redux';
 import { addUser, removeUser } from '../../Store/Slices/UserSlice';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { onAuthStateChanged } from "firebase/auth";
 import { AUTH } from '../../Utils/Firebase';
 import { useDispatch } from 'react-redux';
@@ -13,44 +13,43 @@ const Header = () => {
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const user=useSelector(appStore=>appStore.user);
-    const [userName,setUserName]=useState(user.uid);
-
-
-useEffect(()=>{
-  onAuthStateChanged(AUTH, (user) => {
-    if (user) {
-                    // User Sign In
-      const {uid,email,displayName,photoURL} = user;
-      dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
-      navigate("/browse");
-    } else {
-                   // User is signed out
-    dispatch(removeUser());
-    navigate("/");
-    }
-  });
-},[]);
+    useEffect(()=>{
+    const unsubscribe= onAuthStateChanged(AUTH, (user) => {
+     
+        if (user) {
+          // User Sign In
+          const {uid,email,displayName,photoURL} = user;
+          dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));
+          navigate("/browse");
+        } else {
+        // User is signed out
+        dispatch(removeUser());
+        navigate("/");
+        }
+      });
+      // this will be called when component unmount
+      return ()=> unsubscribe();
+    },[]);
 
 
      const handleSignOut=()=>{
-          signOut(AUTH).then(() => {
-            setUserName('Guest');
-         
-            navigate("/");
-          }).catch((error) => {
+          signOut(AUTH).then(() => {})
+          .catch((error) => {
            navigate("/error");
-          });
-          
+          }); 
     }
+    
+
   return (
     <div className='headerWrapper'>
     
-      <img src="https://th.bing.com/th/id/R.2ea85d7448475a744c1485c2eac3d3d1?rik=LOSTtarBPEnY%2fw&riu=http%3a%2f%2fwww.freepnglogos.com%2fuploads%2fnetflix-logo-0.png&ehk=PaZLUHaWmwAMEzdIDx7zGpBu053ZpXipTljxBidJnfU%3d&risl=&pid=ImgRaw&r=0" alt='netflix logo' className='netFlixHeaderLogo'/>
-  {    userName && <div className='headerProfileInfo'>
-    <img className='userProfileImage' src={user.photoURL} alt='user'/>
-    <p>Welcome,<span> {user.displayName}</span></p>
-    <button type='button' onClick={handleSignOut}>Sign Out</button>
-    </div>
+      <img src={NETFLIX_LOGO} alt='netflix logo' className='netFlixHeaderLogo'/>
+      {/* <button type='button' onClick={handleSignOut}>Logout</button> */}
+  { user.user?  <div className='headerProfileInfo'>
+        <img className='userProfileImage' src={user.user.photoURL} alt='user'/>
+        <p><span> {user.user.displayName}</span></p>
+        <button type='button' onClick={handleSignOut}>Logout</button>
+    </div>:''
   }
         
   

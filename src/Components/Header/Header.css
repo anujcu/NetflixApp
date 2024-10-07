@@ -2,14 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
-    background: #000000a3;
+    position: fixed;
+    background: rgb(214, 240, 251);
+    background: linear-gradient(180deg, rgba(214, 240, 251, 0) 0%, rgb(0 0 0 / 52%));
     width: 100%;
     padding: 7px 15px;
     z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
 }
 .netFlixHeaderLogo {
-    height: 50px;
+    height: 40px;
 }
 .headerWrapper button {
     background: #edaf1c;

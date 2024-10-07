@@ -5,10 +5,8 @@ import {checkLoginForm} from '../../Utils/validate';
 import {AUTH} from '../../Utils/Firebase';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import { useDispatch } from 'react-redux';
-import appStore from '../../Store/AppStore';
-import { useNavigate } from 'react-router-dom';
-import Browse from '../Browse/Browse';
 import { addUser } from '../../Store/Slices/UserSlice';
+import { USER_AVTAR } from '../../Constants/Constants';
 
 const Login=()=>{
 
@@ -41,10 +39,8 @@ const Login=()=>{
                 // Signed up 
                 const user = userCredential.user;
                 //Update the User Profile
-                            updateProfile(user, {
-                                displayName: name.current.value,
-                                photoURL: "https://avatars.githubusercontent.com/u/8604223?s=40&v=4"
-                            }).then(() => {
+                            updateProfile(user, {displayName: name.current.value,photoURL: USER_AVTAR})
+                            .then(() => {
                                 //update store with local value
                                 const {uid,email,displayName,photoURL} = AUTH.currentUser;
                                 dispatch(addUser({uid:uid,email:email,displayName:displayName,photoURL:photoURL}));

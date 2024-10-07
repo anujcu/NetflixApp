@@ -1,0 +1,40 @@
+.movieListCardWrapper {
+  display: flex;
+  align-items: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  column-gap: 0;
+  padding: 15px;
+
+}
+/* width */
+.movieListCardWrapper::-webkit-scrollbar {
+  height: 8px;
+  border-radius: 5px;
+}
+
+/* Track */
+.movieListCardWrapper::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+/* Handle */
+.movieListCardWrapper::-webkit-scrollbar-thumb {
+  background: #555; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.movieListCardWrapper::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+.movieListWrapper {
+  padding: 15px;
+  background: #000;
+}
+.movieListTitle {
+  color: #fff;
+  font-weight: 700;
+  padding-left: 15px;
+  font-size: 30px;
+}

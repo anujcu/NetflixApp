@@ -14,7 +14,7 @@ const BannerContainer=()=>{
   return(
      <div className='bannerContainer'>
     <VideoBackground movieId={id}/>
-    <VideoTitle original_title={original_title} overview={overview} poster_path={poster_path}/>
+    <VideoTitle original_title={original_title} overview={overview}/>
     </div>
   )
 }

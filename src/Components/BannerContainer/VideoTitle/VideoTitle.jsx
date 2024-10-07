@@ -1,10 +1,9 @@
 import { PLAY_ICON } from '../../../Constants/Constants'
 import './VideoTitle.css'
-const VideoTitle = ({original_title,overview,poster_path}) => {
+const VideoTitle = ({original_title,overview}) => {
   return (
     <div className="bannerTitleContainer">
       <div className='bannerTitleContainerInner'>
-      <p>Poster Path: {poster_path}</p>
       <h1>{original_title}</h1>
       <p>{overview}</p>
       <div className='videoTitleActions'>
